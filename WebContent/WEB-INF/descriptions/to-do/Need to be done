@@ -1,0 +1,30 @@
+Registration:
+
+Controleren of alle velden ingevuld zijn. 
+Login, Passwoord, en alle andere velden die verplicht zijn om in te vullen. 
+Indien een van de velden niet ingevuld is, servlet niet laten passeren naar een JSP, maar op het scherm bericht tonen om die velden in te vullen!
+
+
+Set cookie:
+
+«десь ¬ам уже много знакомо. ¬ начале мы провер€ем, не пустые ли значени€ переданных скрипту параметров логина и парол€ и затем, подключившись к нашей базе mmclub узнаем при помощи SQL запросов - есть ли такой пользователь и пароль дл€ него в таблице users.
+≈сли такой пользователь есть, создаем случайный параметр сессии и пишем его в cookie и в специально подготовленное дл€ этих целей поле в таблице users дл€ этого пользовател€, после чего переадресуем его на главную страницу нашей игры main.phtml (которой пока что нет, но мы ее сделаем в нашем следующем уроке):
+ 
+
+$aRandVal = rand(0,1000000000);
+$query = "UPDATE users SET SessionID='$aRandVal' WHERE Nick_Name='$aNickName'";
+$result = mysql_query($query) or die("Query failed : " . mysql_error());
+print('<SCRIPT>setCookie("MMCLUB_NICK_NAME","'.$aNickName.'");</SCRIPT>');
+print('<SCRIPT>setCookie("MMCLUB_SESSION","'.$aRandVal.'");</SCRIPT>');
+print('<SCRIPT>location.href="main.phtml?NickName='.$aNickName.'";</SCRIPT>');
+setCookie - эта функци€ написана на JavaScript и служит дл€ записи cookie дл€ данного открытого окна браузера.
+
+<SCRIPT>
+function setCookie(name, value) {
+  document.cookie = name+"="+escape(value)+"; path=/";
+}
+</SCRIPT>
+ƒл€ чего все это нужно?  ѕри входе в игру, мы будем провер€ть совпадение нашего (SessionID)  в таблице users дл€ игрока со значением в cookie MMCLUB_SESSION чтоб проверить правильность входа пользовател€ в игру.  онечно мы могли бы использовать механизм сессий встроенный в PHP, но так проще. 
+¬ случае несовпадений, программа переадресует пользовател€ на страницу ошибки: login_error.html 
+—мотрите полный код скрипта, который отвечает за вход в игру  login.phtml здесь.
+

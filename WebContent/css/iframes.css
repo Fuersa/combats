@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+/*https://github.com/house9/jquery-iframe-auto-height*/
+
+html, body { height: 100% }
+
+body {
+display: block;
+margin: 0px;
+padding: 0px;
+}
+
+
+iframe#char {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 100%;
+	min-height: 65%;
+	background-color: #BFBFBF;
+	
+}
+
+iframe#chat{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 75%;
+	height: 33%;
+	background-color: orange;
+	overflow: hidden;
+}
+
+iframe#room{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 24%;
+	height: 33%;
+	background-color: red;
+	
+	overflow-y: scroll;
+	white-space: nowrap;
+}
+
+iframe#buttons{
+	position:absolute;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	height: 30px;
+	background-color: gray;
+	
+	
+	
+   bottom:0;
+   width:100%;
+}
+
+iframe#inventory{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 750px;
+	min-height: 450px;
+	background-color: gray;
+	
+	overflow-y: ;
+	white-space: nowrap;
+}
