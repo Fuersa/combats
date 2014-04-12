@@ -32,7 +32,7 @@ public class FightServlet extends HttpServlet {
 	int krit1 = (int) (Accuracy1*1.5+Luck1);
 	int antikrit1 = (int) (Accuracy1*2.2+Luck1);
 
-	//-- Статы персонажа 2
+	//-- Stats of the second char
 	int Strength2 = 10;
 	int Intelligence2 = 9;
 	int Personality2 = 5;
@@ -55,15 +55,6 @@ public class FightServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 
-//if (s_attack1==4){ 
-//if((s_defend2==3) || (s_defend2==4)){ 
-//document.all("mes").innerHTML="Pers2 заблокировал удар в ноги<BR>";
-//lHit1=false;
-//}else{
-//document.all("mes").innerHTML="Pers2 пропустил удар в ноги -"+povreduha+"<BR>";
-//lHit1=true;
-//}
-//}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(VIEW);
 		dispatcher.forward(request, response);
 
