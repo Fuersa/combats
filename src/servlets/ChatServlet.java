@@ -25,6 +25,7 @@ public class ChatServlet extends HttpServlet {
 		System.out.println("|||||||||*** START SERVLET [--ChatServlet.java--] ***|||||||||");
 		System.out.println("START -- public Void init");
 		super.init(config);
+		
 	}
 	
 	@Override
