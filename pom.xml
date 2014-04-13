@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>game</groupId>
 	<artifactId>game</artifactId>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<version>1.0</version>
 	<name>game</name>
 	<repositories>
