@@ -2,11 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>game</groupId>
-	<artifactId>game</artifactId>
+
+	<groupId>commodore</groupId>
+	<artifactId>commodore</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
-	<name>game</name>
+	<version>1.0-SNAPSHOT</version>
+	<name>My Game</name>
+	<url>https://game-commodore.rhcloud.com/</url>
+
 	<repositories>
 		<repository>
 			<id>eap</id>
@@ -31,11 +34,9 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
-	</properties>
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -54,6 +55,7 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
 	<profiles>
 		<profile>
 			<!-- When built in OpenShift the 'openshift' profile will be used when 
@@ -68,16 +70,17 @@
 				<finalName>game</finalName>
 				<plugins>
 					<plugin>
-						<artifactId>maven-war-plugin</artifactId>
-						<version>2.1.1</version>
-						<configuration>
-							<outputDirectory>webapps</outputDirectory>
-							<warName>ROOT</warName>
-						</configuration>
-					</plugin>
-					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>
 						<version>2.3</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<configuration>
+									<webXml>..../WEB-INF/web.xml</webXml>
+								</configuration>
+							</execution>
+						</executions>
 						<configuration>
 							<warSourceDirectory>WebContent</warSourceDirectory>
 							<failOnMissingWebXml>false</failOnMissingWebXml>
@@ -95,5 +98,16 @@
 			</build>
 		</profile>
 	</profiles>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+	</properties>
+
+
+
+
 </project>
 
